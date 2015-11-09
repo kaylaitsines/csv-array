@@ -1,6 +1,9 @@
 #csv-array
 > Simple. lighweight, intelligent CSV-parser for nodeJS
 
+## How Is This Fork Different?
+Showing friendly Error Messages and LineNumber
+
 ## Dependencies
 This package got only one dependencies of "line-by-line".
 
@@ -21,11 +24,11 @@ After installing the package you can use the "parseCSV" method as follows
 ```
  parseCSV("CSV-file-name.csv", callBack, considerFirstRowAsHeading)
    /*
-      Where callBack is the method which have the output array as argument, and you can do 
+      Where callBack is the method which have the output array as argument, and you can do
       anything you like inside the function with the array
 
-      "considerFirstRowAsHeading" is a configuration variable which holds "true" value 
-      by default. If it is true or nothing then the first row of the csv data will be considered 
+      "considerFirstRowAsHeading" is a configuration variable which holds "true" value
+      by default. If it is true or nothing then the first row of the csv data will be considered
       as heading and the out put data will use the first row's content as attribute names.
       If it is "false" then all of the rows of the file will be returned as array.
 
@@ -46,12 +49,12 @@ this is another test question answer it?,"answer1,answer2","answer2,answer3","an
  csv.parseCSV("test.csv", function(data){
    console.log(JSON.stringify(data));
  });
-``` 
+```
 
 Output
 ```json
-[  
-   {  
+[
+   {
       "Question Statement":"this is a test question answer it?",
       "Option 1":"answer 1",
       "Option 2":"answer 2",
@@ -62,7 +65,7 @@ Output
       "Deficulty":"3",
       "Category":"test"
    },
-   {  
+   {
       "Question Statement":"this is another test question answer it?",
       "Option 1":"answer1,answer2",
       "Option 2":"answer2,answer3",
@@ -84,8 +87,8 @@ Output
 ```
 Output
 ```json
-[  
-   [  
+[
+   [
       "Question Statement",
       "Option 1",
       "Option 2",
@@ -96,7 +99,7 @@ Output
       "Deficulty",
       "Category"
    ],
-   [  
+   [
       "this is a test question answer it?",
       "answer 1",
       "answer 2",
@@ -107,7 +110,7 @@ Output
       "3",
       "test"
    ],
-   [  
+   [
       "this is another test question answer it?",
       "answer1,answer2",
       "answer2,answer3",
@@ -119,7 +122,7 @@ Output
       "test"
    ]
 ]
-``` 
+```
 
 ```javascript
  var csv = require('csv-array');
@@ -133,11 +136,11 @@ Output
       console.log(JSON.stringify(data));
     });
  */
-``` 
+```
 Output
 ```json
-[  
-   {  
+[
+   {
       "Question Statement":"this is a test question answer it?",
       "Option 1":"answer 1",
       "Option 2":"answer 2",
@@ -148,7 +151,7 @@ Output
       "Deficulty":"3",
       "Category":"test"
    },
-   {  
+   {
       "Question Statement":"this is another test question answer it?",
       "Option 1":"answer1,answer2",
       "Option 2":"answer2,answer3",
