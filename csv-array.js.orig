@@ -17,6 +17,44 @@ module.exports = {
     });
   },
 
+<<<<<<< HEAD
+		var tempDataArray = [];
+		var tempAttributeNameArray = [];
+		var tempLineCounter = 0;
+		
+		readStream.on('error', function(){
+			console.log("cannot read the file any more.");
+		});
+		
+		readStream.on('line', function(line) {
+			readStream.pause();
+			if(tempLineCounter == 0) {
+				tempAttributeNameArray = line.split(",");
+				if(!considerFirstRowAsHeading) {
+					if(tempAttributeNameArray.length == 1) {
+						tempDataArray.push(line);	
+					} else {
+						tempDataArray.push(tempAttributeNameArray);
+					}
+				}
+				tempLineCounter = 1;
+			} else {
+				tempDataArray.push(presentObject.buildOutputData(tempAttributeNameArray, line, considerFirstRowAsHeading));
+				
+			}
+	        readStream.resume();
+		    
+			
+		});
+		
+		readStream.on('end', function() {
+			if(tempDataArray.length == 0) {
+				tempDataArray = tempAttributeNameArray;
+			}
+			callBack(tempDataArray);
+		});
+	},
+=======
   // returns data from a single line
   getDataFromLine : function(line) {
     this.lineNumber++;
@@ -46,6 +84,7 @@ module.exports = {
           tempString = "";
           index++;continue;
         }
+>>>>>>> v0.0.22
 
       }
       dataArray.push(tempString);

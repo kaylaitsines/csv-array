@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
+  "name": "csv-array",
+  "version": "0.0.2",
+  "description": "Intelligent CSV parser created and made for nodeJS. Which takes a csv file and produce an array from it.",
+=======
   "name": "pac-csv-array",
   "version": "1.0.0",
   "description": "Take a csv file and produce an array from it. Show error messages friendly.",
+>>>>>>> v0.0.22
   "main": "csv-array.js",
   "dependencies": {
     "fs": "0.0.2",
