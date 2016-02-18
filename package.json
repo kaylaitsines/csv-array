@@ -1,11 +1,11 @@
 {
   "name": "pac-csv-array",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Take a csv file and produce an array from it. Show error messages friendly.",
   "main": "csv-array.js",
   "dependencies": {
     "fs": "0.0.2",
-    "line-by-line": "~0.1.3"
+    "line-by-line": "~0.1.4"
   },
   "devDependencies": {},
   "scripts": {

@@ -71,23 +71,25 @@ module.exports = {
 
     readStream.on('line', function(line) {
       readStream.pause();
-      if(tempLineCounter == 0) {
-        tempAttributeNameArray = line.split(",");
-        if(!considerFirstRowAsHeading) {
-          if(tempAttributeNameArray.length == 1) {
-            tempDataArray.push(line);
-          } else {
-            tempDataArray.push(tempAttributeNameArray);
+
+      setTimeout(function() {
+        if(tempLineCounter == 0) {
+          tempAttributeNameArray = line.split(",");
+          if(!considerFirstRowAsHeading) {
+            if(tempAttributeNameArray.length == 1) {
+              tempDataArray.push(line);
+            } else {
+              tempDataArray.push(tempAttributeNameArray);
+            }
           }
-        }
-        tempLineCounter = 1;
-      } else {
-        tempDataArray.push(presentObject.buildOutputData(tempAttributeNameArray, line, considerFirstRowAsHeading));
+          tempLineCounter = 1;
+        } else {
+          tempDataArray.push(presentObject.buildOutputData(tempAttributeNameArray, line, considerFirstRowAsHeading));
 
-      }
-      readStream.resume();
+        };
 
-
+        readStream.resume();
+      }, 0);
     });
 
     readStream.on('end', function() {
