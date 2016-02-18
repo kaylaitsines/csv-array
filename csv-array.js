@@ -58,7 +58,7 @@ module.exports = {
 
   parseFile : function(fileName, callBack, considerFirstRowAsHeading) {
     var presentObject = module.exports;
-    var lblReader = require('line-by-line');
+    var lblReader = require('pac-line-by-line');
     var readStream = new lblReader(fileName);
 
     var tempDataArray = [];
